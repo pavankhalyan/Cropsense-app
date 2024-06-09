@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'; 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; 
 import LoginScreen from './src/screen/LoginScreen';
-import SignupScreen from './src/screen/SignupScreen';
+import DashboardScreen from './src/screen/DashboardScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,11 +12,11 @@ export default function App() {
       <Stack.Navigator screenOptions={ {
         
       }}>
-        <Stack.Screen name ="CROPSENSE" component={LoginScreen} /> 
-        <Stack.Screen name="Signup" component={SignupScreen} />
+        <Stack.Screen name ="CROPSENSE" component={LoginScreen}/> 
+        <Stack.Screen name="Dashboard" component={DashboardScreen} />
       </Stack.Navigator>
       </NavigationContainer >
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({ });
