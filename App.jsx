@@ -12,7 +12,7 @@ export default function App() {
       <Stack.Navigator screenOptions={ {
         
       }}>
-        <Stack.Screen name ="CROPSENSE" component={LoginScreen}/> 
+        <Stack.Screen name ="CROPSENSE" component={LoginScreen} options={{headerShown: false}}/> 
         <Stack.Screen name="Dashboard" component={DashboardScreen} />
       </Stack.Navigator>
       </NavigationContainer >

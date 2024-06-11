@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 const DashboardScreen = () => {
   const [temperature, setTemperature] = useState(0);
@@ -8,22 +8,30 @@ const DashboardScreen = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Simulating live data updates
       setTemperature((Math.random() * 35).toFixed(1));
       setMoisture((Math.random() * 100).toFixed(1));
       setHumidity((Math.random() * 100).toFixed(1));
-    }, 3000); // Update every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Dashboard</Text>
+      <Text style={styles.header}>Soil Health Dashboard</Text>
       <View style={styles.dataContainer}>
-        <Text style={styles.dataText}>Temperature: {temperature} °C</Text>
-        <Text style={styles.dataText}>Moisture: {moisture} %</Text>
-        <Text style={styles.dataText}>Humidity: {humidity} %</Text>
+        <View style={styles.dataBox}>
+          <Text style={styles.dataLabel}>Temperature</Text>
+          <Text style={styles.dataText}>{temperature} °C</Text>
+        </View>
+        <View style={styles.dataBox}>
+          <Text style={styles.dataLabel}>Moisture</Text>
+          <Text style={styles.dataText}>{moisture} %</Text>
+        </View>
+        <View style={styles.dataBox}>
+          <Text style={styles.dataLabel}>Humidity</Text>
+          <Text style={styles.dataText}>{humidity} %</Text>
+        </View>
       </View>
     </View>
   );
@@ -37,18 +45,37 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 20,
   },
   header: {
-    color: 'white',
-    fontSize: 24,
+    color: 'black',
+    fontSize: 28,
     marginBottom: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   dataContainer: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 20,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  dataBox: {
+    backgroundColor: '#e0e0e0',
+    padding: 10,
+    borderRadius: 8,
+    width: '30%',
     alignItems: 'center',
   },
+  dataLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
   dataText: {
-    color: 'white',
-    fontSize: 18,
-    marginVertical: 5,
+    fontSize: 16,
+    color: 'black',
   },
 });

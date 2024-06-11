@@ -4,6 +4,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import LinearGradient from 'react-native-linear-gradient'; 
+import { Image } from 'react-native';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -28,9 +30,15 @@ const LoginScreen = () => {
       validationSchema={validationSchema}
       onSubmit={handleRegister}
     >
-      {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
-        <View style={styles.container}>
-          <View style={styles.loginContainer}>
+      {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => ( 
+
+
+
+        <View style={styles.container}> 
+        <View > 
+           <Image source={require('./images/green.png')} />
+        </View>
+          <View style={styles.loginContainer}> 
             <Text style={styles.loginText}>Hello</Text>
           </View>
           <View style={styles.inputContainer}>
